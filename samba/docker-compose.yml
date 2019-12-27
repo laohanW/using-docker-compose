@@ -1,0 +1,14 @@
+version: "3"
+services:
+  samba:
+    image: dperson/samba
+    restart: unless-stopped
+    ports:
+      - "139:139"
+      - "445:445"
+    volumes:
+      - "/home/laohan:/home/laohan"
+      - "./smb.conf:/etc/samba/smb.conf"
+    command: -u "laohan;pAssW0rd!" -s "laohan;/home/laohan;yes;no;no;laohan;laohan;laohan"
+    
+    

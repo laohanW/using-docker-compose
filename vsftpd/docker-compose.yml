@@ -1,0 +1,14 @@
+version: "2"
+services:
+  vsftpd:
+    container_name: vsftpd
+    image: fauria/vsftpd
+    volumes:
+      - "/srv:/home/vsftpd"
+    ports:
+      - "21:21"
+      - "20:20"
+      - "21100-21110:21100-21110"
+    environment:
+      FTP_USER: vsftpd
+      FTP_PASS: pAssW0rd!

@@ -1,0 +1,27 @@
+version: "3.1"
+services:
+  mysql:
+    image: mysql:5.7
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '0.30'
+          memory: 150M
+    environment:
+      MYSQL_ROOT_PASSWORD: pAssW0rd!
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: pAssW0rd!
+    volumes:
+      - ./db:/var/lib/mysql/
+      - ./conf/my.cnf:/etc/mysql/my.cnf
+      - ./conf/mysql.conf.d:/etc/mysql/mysql.conf.d
+      - ./conf/conf.d:/etc/mysql/conf.d
+      - ./init:/docker-entrypoint-initdb.d/
+    ports:
+      - "3306:3306"
+  redis:
+    image: redis:latest
+    restart: unless-stopped
+    ports:
+      - "6379:6379"

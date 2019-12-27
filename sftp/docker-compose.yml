@@ -1,0 +1,7 @@
+sftp:
+  image: atmoz/sftp
+  ports:
+    - "2222:22"
+  volumes:
+    - "./users.conf:/etc/sftp/users.conf:ro"
+    - /home/laohan/:/home/laohan/
