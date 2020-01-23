@@ -8,7 +8,7 @@ services:
       - "445:445"
     volumes:
       - "/home/laohan:/home/laohan"
-      - "./smb.conf:/etc/samba/smb.conf"
+#      - "./smb.conf:/etc/samba/smb.conf"
     command: -u "laohan;pAssW0rd!" -s "laohan;/home/laohan;yes;no;no;laohan;laohan;laohan"
     
     
