@@ -1,0 +1,14 @@
+version: "3"
+services:
+  csvn:
+    container_name: csvn
+    image: laohanw/lens_subversion:v1
+    restart: unless-stopped
+    ports:
+      - "3343:3343"
+      - "18080:18080"
+    volumes:
+      - "./data/repositories/:/opt/csvn/data/repositories/"
+      - "./data/conf/svn_access_file:/opt/csvn/data/conf/svn_access_file"
+      - "./data/conf/svn_auth_file:/opt/csvn/data/conf/svn_auth_file"
+      - "./data/csvn-production-hsqldb.script:/opt/csvn/data/csvn-production-hsqldb.script"
